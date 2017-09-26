@@ -1,0 +1,75 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Thinktecture CefSharp Sample</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style type="text/css">
+        body {
+            font-family: Verdana;
+            color: white;
+        }
+
+        a, a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu-block {
+            position: absolute;
+            left: 150px;
+            top: 150px;
+            background-color: cornflowerblue;
+            padding-right: 25px;
+        }
+
+            .menu-block li {
+                margin-bottom: 5px;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="menu-block">
+        <ul>
+            <li>
+                <a href="http://www.thinktecture.com">Thinktecture AG</a>
+            </li>
+            <li>
+                <a href="#" onclick="toggleFullscreen(); return false;">Toggle fullscreen</a>
+            </li>
+            <li>
+                <a href="#" onclick="closeApplication(); return false;">Close App</a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+<script type="text/javascript">
+
+    function toggleFullscreen() {
+        console.log('toggleFullscreen called');
+
+        try {
+            window.hostInterface.toggleFullScreen();
+        }
+        catch (err) {
+            console.log(`Error while calling toggleFullscreen on host: ${err.toString()}`);
+        }
+    }
+
+    function closeApplication() {
+        console.log('closeApplication called');
+
+        try {
+            window.hostInterface.closeApplication();
+        }
+        catch (err) {
+            console.log(`Error while calling closeApplication on host: ${err.toString()}`);
+        }
+    }
+
+</script>
+</html>
